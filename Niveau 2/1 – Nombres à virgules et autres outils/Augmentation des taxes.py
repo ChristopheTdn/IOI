@@ -1,0 +1,6 @@
+taxe=float(input())
+newTaxe=float(input())
+prix =float(input())
+prix = prix /(1+(taxe/100))
+prix = prix + (newTaxe * prix /100)
+print (round(prix,2))
