@@ -15,11 +15,11 @@ while coursePasTerminee:
         deroulement.append([etape[placeVoiture], etape[placeVoiture - 1]])
         tour += 1
         etape[placeVoiture], etape[placeVoiture - 1] = (
-            etape[placeVoiture - 1], 
+            etape[placeVoiture - 1],
             etape[placeVoiture],
         )
     voiture -= 1
-    if etape == course :
+    if etape == course:
         coursePasTerminee = False
 
 print(tour)
