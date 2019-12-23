@@ -1,28 +1,31 @@
-nbAutomobiles = int(input())
-course = list(map(int, input().split()))
-coursePasTerminee = True
-course.insert(0, 0)
-etape = []
-for i in range(nbAutomobiles + 1):
-    etape.append(i)
-tour = 0
-deroulement = []
-voiture = nbAutomobiles
+def bubble_sort(data):
+    nbechanges = 0
+    echanges = []
 
-while coursePasTerminee:
-    while course.index(voiture) != etape.index(voiture):
-        placeVoiture = etape.index(voiture)
-        deroulement.append([etape[placeVoiture], etape[placeVoiture - 1]])
-        tour += 1
-        etape[placeVoiture], etape[placeVoiture - 1] = (
-            etape[placeVoiture - 1],
-            etape[placeVoiture],
-        )
-    voiture -= 1
-    if etape == course:
-        coursePasTerminee = False
+    n = len(data)
+    swapped_elements = True
 
-print(tour)
-deroulement.reverse()
-for i in deroulement:
-    print("{} {}".format(i[0], i[1]))
+    while swapped_elements == True:
+        swapped_elements = False
+
+        for j in range(0, n - 1):
+            if data[j] > data[j + 1]:
+                swapped_elements = True
+                data[j], data[j + 1] = data[j + 1], data[j]
+
+                nbechanges += 1
+                echanges.append(str(data[j + 1]) + " " + str(data[j]))
+
+    return nbechanges, echanges
+
+
+def main():
+    nbAuto = int(input())
+    numAutoDep = list(map(int, input().split()))
+
+    data = bubble_sort(numAutoDep)
+
+    print(data[0])
+    print("\n".join(data[1]))
+
+main()
